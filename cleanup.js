@@ -2,6 +2,9 @@ const core = require('@actions/core');
 const exec = require('@actions/exec');
 const fs = require('fs');
 
+// Ensure we run in the action's repo directory
+process.chdir(__dirname);
+
 async function cleanup() {
   try {
     core.info('🧹 Starting cleanup process...');

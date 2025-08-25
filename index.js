@@ -4,6 +4,9 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
+// Ensure we run in the action's repo directory
+process.chdir(__dirname);
+
 async function main() {
   try {
     // Get input parameters
