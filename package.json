@@ -1,0 +1,27 @@
+{
+  "name": "ibm-powervs-action",
+  "version": "",
+  "description": "GitHub actions for PowerVS",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bjia56/ibm-powervs-action.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Actions",
+    "PowerVS",
+    "IBM Cloud",
+    "AIX"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bjia56/ibm-powervs-action/issues"
+  },
+  "homepage": "https://github.com/bjia56/ibm-powervs-action",
+  "dependencies": {
+    "@actions/core": "^1.9.1",
+    "@actions/exec": "^1.1.1"
+  }
+}

@@ -1,0 +1,40 @@
+name: 'IBM PowerVS Action'
+description: 'Spin up a VM in IBM PowerVS cloud'
+author: 'Brett Jia'
+
+inputs:
+  ibmcloud_api_key:
+    description: 'IBM Cloud API Key'
+    required: true
+  zone:
+    description: 'IBM Cloud PowerVS zone'
+    required: false
+    default: 'us-south'
+  prefix:
+    description: 'Prefix for resources'
+    required: false
+    default: 'github-actions'
+  os_image_name:
+    description: 'OS image name'
+    required: false
+    default: '7200-05-09'
+  server_type:
+    description: 'PowerVS server type'
+    required: false
+    default: 's1022'
+  number_of_processors:
+    description: 'Number of processors'
+    required: false
+    default: '2'
+  memory_size:
+    description: 'Memory size in GB'
+    required: false
+    default: '4'
+  user_data:
+    description: 'User data script to run on instance startup'
+    required: false
+
+runs:
+  using: 'node20'
+  main: './index.js'
+  post: './cleanup.js'

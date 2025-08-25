@@ -1,0 +1,25 @@
+name: Example AIX VM Provisioning
+
+on:
+  workflow_dispatch:
+
+jobs:
+  provision-aix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Provision AIX VM
+        uses: ./
+        with:
+          ibmcloud_api_key: ${{ secrets.IBMCLOUD_API_KEY }}
+          zone: 'us-south'
+          prefix: 'example-test-${{ github.run_number }}'
+
+      - name: Test connection
+        shell: powervs {0}
+        run: |
+          whoami
+          uname -a
+          uptime
