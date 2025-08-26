@@ -1,8 +1,8 @@
 locals {
-  resource_group_name = "${var.prefix}-${var.powervs_zone}-resource-group"
-  workspace_name      = "${var.prefix}-${var.powervs_zone}-workspace"
-  ssh_key_name        = "${var.prefix}-${var.powervs_zone}-pi-ssh-key"
-  instance_name       = "${var.prefix}-${var.powervs_zone}-instance"
+  resource_group_name = "${var.prefix}-resource-group"
+  workspace_name      = "${var.prefix}-workspace"
+  ssh_key_name        = "${var.prefix}-pi-ssh-key"
+  instance_name       = "${var.prefix}-instance"
 }
 
 module "resource_group" {
