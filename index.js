@@ -118,6 +118,7 @@ Host powervs
   IdentityFile ${sshKeyPath}
   StrictHostKeyChecking no
   UserKnownHostsFile /dev/null
+  ServerAliveInterval 60
   LogLevel ERROR
 `;
 
