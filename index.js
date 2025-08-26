@@ -131,10 +131,27 @@ Host powervs
     }
 
     const shellScript = `#!/usr/bin/env sh
-ssh powervs sh -l <\$1
+ssh powervs sh <\$1
 `;
     const shellScriptPath = path.join(binDir, 'powervs');
     fs.writeFileSync(shellScriptPath, shellScript, { mode: 0o755 });
+
+    // Configure MTU for eth0 interface if running on Linux
+    core.info('🔧 Checking MTU configuration...');
+    if (process.platform === 'linux') {
+      try {
+        // Check if eth0 interface exists
+        await exec.exec('ip', ['link', 'show', 'eth0'], { ignoreReturnCode: true });
+
+        core.info('📡 Setting MTU to 1450 for eth0 interface...');
+        await exec.exec('sudo', ['ip', 'link', 'set', 'mtu', '1450', 'eth0']);
+        core.info('✅ MTU configured successfully');
+      } catch (error) {
+        core.info('ℹ️  MTU configuration not relevant - eth0 interface not found or not accessible');
+      }
+    } else {
+      core.info('ℹ️  MTU configuration not relevant - not running on Linux');
+    }
 
     // Store state information for cleanup
     const stateInfo = {
