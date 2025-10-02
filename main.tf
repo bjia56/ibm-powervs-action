@@ -52,7 +52,7 @@ module "pi_instance" {
 
   pi_workspace_guid = module.powervs_workspace.pi_workspace_guid
   pi_ssh_public_key_name     = local.ssh_key_name
-  pi_image_id                = lookup(local.catalog_images, var.powervs_os_image_name, null)
+  pi_boot_image_id           = lookup(local.catalog_images, var.powervs_os_image_name, null)
   pi_networks                = [module.powervs_workspace.pi_public_subnet]
   pi_instance_name           = local.instance_name
   pi_boot_image_storage_tier = var.powervs_boot_image_storage_tier
