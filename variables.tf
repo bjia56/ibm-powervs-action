@@ -30,7 +30,7 @@ variable "powervs_user_data" {
 variable "powervs_os_image_name" {
   description = "Image Name for PowerVS Instance."
   type        = string
-  default     = "7200-05-09"
+  default     = "7200-05-10"
 }
 
 variable "powervs_boot_image_storage_tier" {
