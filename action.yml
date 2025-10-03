@@ -17,7 +17,7 @@ inputs:
   os_image_name:
     description: 'OS image name'
     required: false
-    default: '7200-05-09'
+    default: '7200-05-10'
   server_type:
     description: 'PowerVS server type'
     required: false
